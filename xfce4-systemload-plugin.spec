@@ -12,9 +12,9 @@ Source1:	http://pld-linux.org/Members/andree/%{name}-m4.tgz
 Source2:	%{name}-po.pl
 Patch0:		%{name}-po_pl.patch
 URL:		http://xfce-goodies.berlios.de/
-BuildRequires:  autoconf
-BuildRequires:  automake
-BuildRequires:  libtool
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	xfce4-panel-devel >= 3.99.2
 Requires:	xfce4-panel >= 3.99.2
