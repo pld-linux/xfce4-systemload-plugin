@@ -1,0 +1,12 @@
+diff -Nur old/configure.ac new/configure.ac
+--- old/configure.ac	2003-11-13 19:02:24.000000000 +0000
++++ new/configure.ac	2003-12-17 20:57:34.000000000 +0000
+@@ -30,7 +30,7 @@
+ AC_HEADER_STDC
+ 
+ dnl Check for i18n support 
+-BM_I18N([xfce4-systemload], [de ca hu lt uk])
++BM_I18N([xfce4-systemload], [de ca hu lt pl uk])
+ 
+ dnl configure the panel plugin
+ XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.99.2])
