@@ -1,5 +1,5 @@
-Summary:	XFce plugin which displays the current system load
-Summary(pl):	Wtyczka XFce wy¶wietlaj±ca aktualne obci±¿enie systemu
+Summary:	Xfce plugin which displays the current system load
+Summary(pl):	Wtyczka Xfce wy¶wietlaj±ca aktualne obci±¿enie systemu
 Name:		xfce4-systemload-plugin
 Version:	0.3.4
 Release:	4
@@ -21,14 +21,14 @@ Requires:	xfce4-panel >= 3.99.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A system load plugin for the XFce desktop environment. It displays the
+A system load plugin for the Xfce desktop environment. It displays the
 current CPU load, the memory in use, the swap space and the system
-uptime in the XFce panel.
+uptime in the Xfce panel.
 
 %description -l pl
-Wtyczka obci±¿enia systemu dla ¶rodowiska XFce. Wy¶wietla obecne
+Wtyczka obci±¿enia systemu dla ¶rodowiska Xfce. Wy¶wietla obecne
 obci±¿enie procesora, u¿ycie pamiêci, pliku wymiany i czasu pracy
-systemu w panelu XFce.
+systemu w panelu Xfce.
 
 %prep
 %setup -q -a 1
