@@ -2,7 +2,7 @@ Summary:	Xfce plugin which displays the current system load
 Summary(pl):	Wtyczka Xfce wy¶wietlaj±ca aktualne obci±¿enie systemu
 Name:		xfce4-systemload-plugin
 Version:	0.3.6
-Release:	1
+Release:	2
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
 Source0:	http://download.berlios.de/xfce-goodies/%{name}-%{version}.tar.gz
