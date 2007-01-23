@@ -1,22 +1,20 @@
 Summary:	Xfce plugin which displays the current system load
 Summary(pl):	Wtyczka Xfce wy¶wietlaj±ca aktualne obci±¿enie systemu
 Name:		xfce4-systemload-plugin
-Version:	0.3.6
-Release:	2
+Version:	0.4.2
+Release:	1
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
-Source0:	http://download.berlios.de/xfce-goodies/%{name}-%{version}.tar.gz
-# Source0-md5:	fd73efa3bd7a73e3f5fdf8d4ed848c1f
-Source1:	%{name}-po.pl
-Patch0:		%{name}-po_pl.patch
-URL:		http://xfce-goodies.berlios.de/
+Source0:	http://goodies.xfce.org/releases/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	cc5777bb1621704927513eb8eef5f07c
+URL:		http://goodies.xfce.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	xfce4-panel-devel >= 3.99.2
-Requires:	xfce4-panel >= 3.99.2
+BuildRequires:	xfce4-panel-devel >= 4.4.0
+Requires:	xfce4-panel >= 4.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,17 +29,14 @@ systemu w panelu Xfce.
 
 %prep
 %setup -q 
-install %{SOURCE1} po/pl.po
-%patch0 -p1
 
 %build
 %{__libtoolize}
-%{__aclocal} -I m4
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
 	--disable-static
-
 %{__make}
 
 %install
@@ -50,14 +45,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/xfce4/panel-plugins/*.la
-
-%find_lang xfce4-systemload
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f xfce4-systemload.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog COPYING README
-%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/*.so
+%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/%{name}
+%{_datadir}/xfce4/panel-plugins/systemload.desktop
