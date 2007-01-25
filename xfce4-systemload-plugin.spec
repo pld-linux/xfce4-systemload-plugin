@@ -5,14 +5,15 @@ Version:	0.4.2
 Release:	1
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
-Source0:	http://goodies.xfce.org/releases/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://goodies.xfce.org/releases/xfce4-systemload-plugin/%{name}-%{version}.tar.bz2
 # Source0-md5:	cc5777bb1621704927513eb8eef5f07c
-URL:		http://goodies.xfce.org/
+URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-systemload-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	xfce4-dev-tools >= 4.4.0
 BuildRequires:	xfce4-panel-devel >= 4.4.0
 Requires:	xfce4-panel >= 4.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,7 +29,7 @@ obci±¿enie procesora, u¿ycie pamiêci, pliku wymiany i czasu pracy
 systemu w panelu Xfce.
 
 %prep
-%setup -q 
+%setup -q
 
 %build
 %{__libtoolize}
