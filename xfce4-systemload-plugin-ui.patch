@@ -1,0 +1,69 @@
+diff -ur xfce4-systemload-plugin-1.0.0-orig/configure.ac xfce4-systemload-plugin-1.0.0/configure.ac
+--- xfce4-systemload-plugin-1.0.0-orig/configure.ac	2010-12-10 02:54:05.000000000 +0100
++++ xfce4-systemload-plugin-1.0.0/configure.ac	2011-03-01 13:33:11.956063513 +0100
+@@ -63,7 +63,7 @@
+ dnl ***********************************
+ XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.6.0])
+ XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.3.99.1])
+-XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.3.99.1])
++XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.8.0])
+ XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.99.1])
+ 
+ dnl ***********************************
+diff -ur xfce4-systemload-plugin-1.0.0-orig/panel-plugin/cpu.c xfce4-systemload-plugin-1.0.0/panel-plugin/cpu.c
+--- xfce4-systemload-plugin-1.0.0-orig/panel-plugin/cpu.c	2010-12-09 17:04:10.000000000 +0100
++++ xfce4-systemload-plugin-1.0.0/panel-plugin/cpu.c	2011-03-01 13:33:39.908063511 +0100
+@@ -35,7 +35,7 @@
+ #include <gtk/gtk.h>
+ 
+ #include <libxfce4util/libxfce4util.h>
+-#include <libxfcegui4/dialogs.h>
++#include <libxfce4ui/libxfce4ui.h>
+ #include "cpu.h" 
+ 
+ #if defined(__linux__) || defined(__FreeBSD_kernel__)
+diff -ur xfce4-systemload-plugin-1.0.0-orig/panel-plugin/Makefile.am xfce4-systemload-plugin-1.0.0/panel-plugin/Makefile.am
+--- xfce4-systemload-plugin-1.0.0-orig/panel-plugin/Makefile.am	2010-12-09 17:04:10.000000000 +0100
++++ xfce4-systemload-plugin-1.0.0/panel-plugin/Makefile.am	2011-03-01 13:33:11.956063513 +0100
+@@ -22,13 +22,13 @@
+ xfce4_systemload_plugin_CFLAGS =					\
+ 	$(GTK_CFLAGS)							\
+ 	$(LIBXFCE4UTIL_CFLAGS)						\
+-	$(LIBXFCEGUI4_CFLAGS)						\
++	$(LIBXFCE4UI_CFLAGS)						\
+ 	$(LIBXFCE4PANEL_CFLAGS)						\
+ 	$(PLATFORM_CFLAGS)
+ 
+ xfce4_systemload_plugin_LDADD =						\
+ 	$(LIBXFCE4UTIL_LIBS)						\
+-	$(LIBXFCEGUI4_LIBS)						\
++	$(LIBXFCE4UI_LIBS)						\
+ 	$(LIBXFCE4PANEL_LIBS)
+ 
+ #
+diff -ur xfce4-systemload-plugin-1.0.0-orig/panel-plugin/systemload.c xfce4-systemload-plugin-1.0.0/panel-plugin/systemload.c
+--- xfce4-systemload-plugin-1.0.0-orig/panel-plugin/systemload.c	2010-12-09 17:04:10.000000000 +0100
++++ xfce4-systemload-plugin-1.0.0/panel-plugin/systemload.c	2011-03-01 13:33:11.957063512 +0100
+@@ -35,8 +35,8 @@
+ #include <gtk/gtk.h>
+ 
+ #include <libxfce4util/libxfce4util.h>
+-#include <libxfcegui4/libxfcegui4.h>
+-#include <libxfce4panel/xfce-panel-plugin.h>
++#include <libxfce4ui/libxfce4ui.h>
++#include <libxfce4panel/libxfce4panel.h>
+ 
+ #include "cpu.h"
+ #include "memswap.h"
+diff -ur xfce4-systemload-plugin-1.0.0-orig/panel-plugin/uptime.c xfce4-systemload-plugin-1.0.0/panel-plugin/uptime.c
+--- xfce4-systemload-plugin-1.0.0-orig/panel-plugin/uptime.c	2010-12-09 17:04:10.000000000 +0100
++++ xfce4-systemload-plugin-1.0.0/panel-plugin/uptime.c	2011-03-01 13:34:01.452063513 +0100
+@@ -31,7 +31,7 @@
+ #include <gtk/gtk.h>
+ 
+ #include <libxfce4util/libxfce4util.h>
+-#include <libxfcegui4/dialogs.h>
++#include <libxfce4ui/libxfce4ui.h>
+ 
+ #include "uptime.h"
+ 
