@@ -2,11 +2,12 @@ Summary:	Xfce plugin which displays the current system load
 Summary(pl.UTF-8):	Wtyczka Xfce wyświetlająca aktualne obciążenie systemu
 Name:		xfce4-systemload-plugin
 Version:	1.3.2
-Release:	1
+Release:	2
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-systemload-plugin/1.3/%{name}-%{version}.tar.bz2
 # Source0-md5:	9389bcec82361aaace9f70653df6647e
+Patch0:		convert-gulong.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-systemload-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -34,6 +35,7 @@ systemu w panelu Xfce.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}
