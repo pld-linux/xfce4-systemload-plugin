@@ -1,25 +1,27 @@
 Summary:	Xfce plugin which displays the current system load
 Summary(pl.UTF-8):	Wtyczka Xfce wyświetlająca aktualne obciążenie systemu
 Name:		xfce4-systemload-plugin
-Version:	1.3.2
-Release:	2
+Version:	1.3.3
+Release:	1
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-systemload-plugin/1.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	9389bcec82361aaace9f70653df6647e
-Patch0:		convert-gulong.patch
-URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-systemload-plugin
+Source0:	https://archive.xfce.org/src/panel-plugins/xfce4-systemload-plugin/1.3/%{name}-%{version}.tar.bz2
+# Source0-md5:	70685d1c66cd0336069d284f2cef95c3
+URL:		https://goodies.xfce.org/projects/panel-plugins/xfce4-systemload-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-tools
-BuildRequires:	intltool
+BuildRequires:	glib2-devel >= 1:2.50.0
+BuildRequires:	gtk+3-devel >= 3.22.0
+BuildRequires:	libgtop-devel >= 2.32.0
 BuildRequires:	libtool
 BuildRequires:	libxfce4ui-devel >= 4.16.0
 BuildRequires:	libxfce4util-devel >= 4.17.2
 BuildRequires:	pkgconfig
-BuildRequires:	xfconf-devel >= 4.14.0
+BuildRequires:	upower-devel >= 0.99.0
 BuildRequires:	xfce4-dev-tools >= 4.16.0
 BuildRequires:	xfce4-panel-devel >= 4.16.0
+BuildRequires:	xfconf-devel >= 4.16.0
 Requires:	xfce4-panel >= 4.16.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,10 +37,8 @@ systemu w panelu Xfce.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
